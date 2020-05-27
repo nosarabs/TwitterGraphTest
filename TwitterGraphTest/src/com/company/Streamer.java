@@ -7,25 +7,8 @@ public class Streamer {
 
     public static void streamFeed() throws TwitterException {
 
-        ConfigurationBuilder cb = new ConfigurationBuilder();
-
-        cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("MZQWrOLfmrnPClJWGNJJlN2hH")
-                .setOAuthConsumerSecret("mLbGHFeXpKimgTaKyCGr3siSHCGGauHgCgeiXibrE4aF0vA8Bd")
-                .setOAuthAccessToken("288909021-tDAyzEMgo4TmwTPyzzqnOriDkrR2WWIkCK2jr4RA")
-                .setOAuthAccessTokenSecret("E0Z870tGX3RXfdrPIpnEBw3FKUH71aiWspdfmAjIo0mrp");
-
-        TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
-
-        ConfigurationBuilder cb1 = new ConfigurationBuilder();
-        cb1.setDebugEnabled(true)
-                .setOAuthConsumerKey("MZQWrOLfmrnPClJWGNJJlN2hH")
-                .setOAuthConsumerSecret("mLbGHFeXpKimgTaKyCGr3siSHCGGauHgCgeiXibrE4aF0vA8Bd")
-                .setOAuthAccessToken("288909021-tDAyzEMgo4TmwTPyzzqnOriDkrR2WWIkCK2jr4RA")
-                .setOAuthAccessTokenSecret("E0Z870tGX3RXfdrPIpnEBw3FKUH71aiWspdfmAjIo0mrp");
-
-        TwitterFactory tf = new TwitterFactory(cb1.build());
-        Twitter twitter = tf.getInstance();
+        TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
+        Twitter twitter = new TwitterFactory().getInstance();
 
         StatusListener listener = new StatusListener() {
 
@@ -61,15 +44,10 @@ public class Streamer {
 
         twitterStream.addListener(listener);
 
-        //twitterStream.sample();
+        // Filter
         long cursor = -1;
-        long[] users = twitter.getFriendsIDs(cursor).getIDs();
-        long[] user = new long [] {twitter.getId()};
-
-        twitterStream.addListener(listener);
-        FilterQuery filter = new FilterQuery();
-        filter.follow( twitter.getFriendsIDs(cursor).getIDs());
-
+        long[] friends = twitter.getFriendsIDs(cursor).getIDs();
+        FilterQuery filter = new FilterQuery(friends);
         twitterStream.filter(filter);
     }
 }
