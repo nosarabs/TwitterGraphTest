@@ -9,7 +9,9 @@ public class Main {
         MethodTesting mT = new MethodTesting();
         //mT.getFeed();
         //mT.searchTweets("love");
-        mT.streamFeed();
+
+        Streamer s = new Streamer();
+        s.streamFeed();
 
 
 
