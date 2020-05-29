@@ -49,6 +49,7 @@ public class MethodTesting {
             String status = tweet.getText();
 
             System.out.println(displayName + " (" + username + ") - " + status + "\n");
+
         }
     }
 
