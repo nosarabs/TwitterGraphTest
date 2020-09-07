@@ -16,10 +16,10 @@ public class MethodTesting {
 
         cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("MZQWrOLfmrnPClJWGNJJlN2hH")
-                .setOAuthConsumerSecret("mLbGHFeXpKimgTaKyCGr3siSHCGGauHgCgeiXibrE4aF0vA8Bd")
-                .setOAuthAccessToken("288909021-tDAyzEMgo4TmwTPyzzqnOriDkrR2WWIkCK2jr4RA")
-                .setOAuthAccessTokenSecret("E0Z870tGX3RXfdrPIpnEBw3FKUH71aiWspdfmAjIo0mrp");
+                .setOAuthConsumerKey("KRn4gIt6uYot14zfCMEpVZlah")
+                .setOAuthConsumerSecret("Ze9D17V1S20RoKbsP0cPnc2gVrBTlfrxiZaKk9xfi0MhaCu447")
+                .setOAuthAccessToken("288909021-Y9tk51cHwOYqwAqH6lFqBGSPu2Z44cRseQ2ACzNL")
+                .setOAuthAccessTokenSecret("JEY6YadQT9sRzWnZfVNcsgjBnHTfzIaGgkayS3c6EfzVI");
 
         tf = new TwitterFactory(cb.build());
         twitter = tf.getInstance();
